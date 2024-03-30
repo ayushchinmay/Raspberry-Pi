@@ -26,10 +26,13 @@ from time import sleep, strftime
 from gpiozero import Button
 import os
 
+## Constants
+PATH = "/home/ayush-pi/Documents/PyCode/PiCam/Stills/"  # Directory Path
+BUTTON_PIN = 2                                          # Button Pin
+PREV_WIDTH = 820                                        # Preview Width
+PREV_HEIGHT = 616                                       # Preview Height
 
-# Directory Path
-PATH = "/home/ayush-pi/Documents/PyCode/PiCam/Stills/"
-
+# Create Directory if it doesn't exist
 if not os.path.exists(PATH):
     os.makedirs(PATH)
 
@@ -48,7 +51,6 @@ cam0 = None
 cam1 = None
 
 ## Buttons
-BUTTON_PIN = 2
 button = Button(BUTTON_PIN)
 
 def print_info(data):
@@ -73,7 +75,7 @@ def start_camera(camnum, controls, preview=True):
     cam.set_controls(controls)
     # Start Preview
     if preview: # If Preview is True, show the preview, else start preview with NULL
-        cam.start_preview(Preview.QTGL, x=100, width=820, height=616)
+        cam.start_preview(Preview.QTGL, x=10, width=PREV_WIDTH, height=PREV_HEIGHT)
     else:
         cam.start_preview(Preview.NULL)
     cam.start()
