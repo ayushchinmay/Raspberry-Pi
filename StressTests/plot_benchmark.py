@@ -102,7 +102,7 @@ def main():
     # Read the data from the CSV file
     data = read_data()
     # Plot the data
-    plot_data(data, False)
+    plot_data(data, True)
 
 
 if __name__ == '__main__':
