@@ -9,9 +9,10 @@
             - [x] Read the data from the CSV file
             - [x] Plot the data
             - [X] Save the plot
+            - [X] Start benchmark.sh script from python
 
     ! TODO !
-            - [ ] Add functionality to plot the peaks for all the frames
+            - [X] Add functionality to plot the peaks for all the frames
 """
 
 ## ==========[ MODULES ]========== ##
@@ -73,15 +74,29 @@ def plot_data(data, save=False):
     for ax in axs:
         ax.set_xlim(data['Timestamp'].iloc[0], data['Timestamp'].iloc[-1])
         ax.minorticks_on()
-        ax.grid(which='major', linestyle='--', linewidth='0.5', color='#cbcbcb')
-        ax.grid(which='minor', linestyle=':', linewidth='0.35', color='#cbcbcb')
+        ax.grid(which='major', linestyle='-.', linewidth='0.45', color='#ababab')
+        ax.grid(which='minor', linestyle='--', linewidth='0.35', color='#cbcbcb')
 
     # Plot the data
+    temp_max = max(data['CPU Temperature (°C)'])
+    temp_min = min(data['CPU Temperature (°C)'])
+    clock_max = max(data['CPU Clock Speed (MHz)'])
+    clock_min = min(data['CPU Clock Speed (MHz)'])
+
     axs[0].set_ylabel("Temperature (°C)", fontdict=label_font)
+    axs[0].set_ylim(temp_min-2, temp_max+2)
+    axs[0].axhline(y=temp_max, color=colors[4], linestyle='--', linewidth=0.75, label='Max Temperature')
+    axs[0].axhline(y=temp_min, color=colors[4], linestyle='--', linewidth=0.75, label='Max Temperature')
+    axs[0].text(data['Timestamp'][100], temp_max+0.75, f"Max: {temp_max:.2f} °C", color=colors[4], size=6, bbox=dict(facecolor='white', edgecolor='#ffffff', pad=1.15))
+    axs[0].text(data['Timestamp'][100], temp_min+0.75, f"Min: {temp_min:.2f} °C", color=colors[4], size=6, bbox=dict(facecolor='white', edgecolor='#ffffff', pad=1.15))
     axs[0].plot(data['Timestamp'], data['CPU Temperature (°C)'], linewidth=0.95, color=colors[0], label='CPU Temperature (°C)')
     
     axs[1].set_ylabel("Frequency (MHz)", fontdict=label_font)
-    axs[1].set_ylim(1400, 2600)
+    axs[1].set_ylim(clock_min-200, clock_max+200)
+    axs[1].axhline(y=clock_max, color=colors[4], linestyle='--', linewidth=0.75, label='Max Clock Speed')
+    axs[1].axhline(y=clock_min, color=colors[4], linestyle='--', linewidth=0.75, label='Min Clock Speed')
+    axs[1].text(data['Timestamp'][100], clock_max+75, f"Max: {clock_max} MHz", color=colors[4], size=6, bbox=dict(facecolor='white', edgecolor='#ffffff', pad=1.15))
+    axs[1].text(data['Timestamp'][100], clock_min+75, f"Min: {clock_min} MHz", color=colors[4], size=6, bbox=dict(facecolor='white', edgecolor='#ffffff', pad=1.15))
     axs[1].plot(data['Timestamp'], data['CPU Clock Speed (MHz)'], linewidth=0.95, color=colors[1], label='CPU Clock Speed (MHz)')
 
     axs[2].set_xlabel("Time (HH:MM:SS)", fontdict=label_font)
