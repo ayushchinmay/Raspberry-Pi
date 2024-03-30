@@ -33,7 +33,7 @@ dtoverlay=imx219,cam1    # Make sure to replace 'imx219' with your camera sensor
 - Modify the `BUTTON_PIN` constant to match the GPIO pin connection with the button
 - `PREV_WIDTH` and `PREV_HEIGHT` constants can be modified to adjust the live-preview window sizes.
 
-## [Benchmark](https://github.com/ayushchinmay/Raspberry-Pi/tree/main/PiCam)
+## [Benchmark](https://github.com/ayushchinmay/Raspberry-Pi/tree/main/Benchmark)
 <img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/benchmark.png" width="800">
 
 ### Files
