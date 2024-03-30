@@ -34,7 +34,7 @@ dtoverlay=imx219,cam1    # Make sure to replace 'imx219' with your camera sensor
 - `PREV_WIDTH` and `PREV_HEIGHT` constants can be modified to adjust the live-preview window sizes.
 
 # [Benchmark](https://github.com/ayushchinmay/Raspberry-Pi/tree/main/Benchmark)
-<img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/benchmark.png" width="800">
+<img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/benchmark1.png" width="800">
 
 ### Files
 - **benchmark.sh**: Shell script to start *stress commandline tool* and save the data as a csv file
