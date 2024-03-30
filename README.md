@@ -1,7 +1,7 @@
 # Raspberry-Pi Projects
 Projects based on Raspberry Pi platform.
 
-## PiCam
+## [PiCam](https://github.com/ayushchinmay/Raspberry-Pi/tree/main/PiCam)
 <img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/picam.png" width="800">
 
 ### Components:
@@ -33,8 +33,15 @@ dtoverlay=imx219,cam1    # Make sure to replace 'imx219' with your camera sensor
 - Modify the `BUTTON_PIN` constant to match the GPIO pin connection with the button
 - `PREV_WIDTH` and `PREV_HEIGHT` constants can be modified to adjust the live-preview window sizes.
 
-## Benchmark (Credit: Tom's Hardware)
-- Copy the benchmark.sh file into your home directory
-- Modify the output file path in the script
-- in the terminal type `chmod +x benchmark.sh` to make the file executable
-- Type `./benchmark.sh` to start benchmarking. Go grab a cold one while you wait.
+## [Benchmark](https://github.com/ayushchinmay/Raspberry-Pi/tree/main/PiCam)
+<img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/benchmark.png" width="800">
+
+### Files
+- **benchmark.sh**: Shell script to start *stress commandline tool* and save the data as a csv file
+- **plot_benchmark.py**: Python script that starts the *benchmark.sh* script, and plot the data from the csv file
+### Setup
+- Install the stress commandline tool: `sudo apt install -y stress`
+- Install required python packages: `matplotlib`, `pandas`
+- Change current directory to the Benchmark folder: `cd Benchmark/`
+- In the terminal type `chmod +x benchmark.sh` to make the file executable
+- Start the python script with: `python plot_benchmark.py`. The benchmarking will take ~5 minutes, and the graph will be saved in *./Results/* directory.
