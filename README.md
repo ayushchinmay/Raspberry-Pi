@@ -33,3 +33,8 @@ dtoverlay=imx219,cam1    # Make sure to replace 'imx219' with your camera sensor
 - Modify the `BUTTON_PIN` constant to match the GPIO pin connection with the button
 - `PREV_WIDTH` and `PREV_HEIGHT` constants can be modified to adjust the live-preview window sizes.
 
+## Benchmark (Credit: Tom's Hardware)
+- Copy the benchmark.sh file into your home directory
+- Modify the output file path in the script
+- in the terminal type `chmod +x benchmark.sh` to make the file executable
+- Type `./benchmark.sh` to start benchmarking. Go grab a cold one while you wait.
