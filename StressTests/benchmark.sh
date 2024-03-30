@@ -1,6 +1,8 @@
 #!/bin/bash
 
 echo "Raspi Hardware Benchmark Tool"
+
+mkdir -p ./Results
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 output_file="/home/ayush-pi/Documents/StressTests/Results/benchmark.csv"
 
