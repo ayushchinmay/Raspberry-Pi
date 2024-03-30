@@ -24,11 +24,11 @@ dtoverlay=imx219,cam1    # Make sure to replace 'imx219' with your camera sensor
 - In the terminal, run the following commands: `sudo apt update` and `sudo apt full-upgrade`
 - Test the cameras are detected by using the following command: `rpicam-hello --camera 0`
 - Install the PiCamera2 python module: `sudo apt install -y python3-picamera2`
-#### Usage
+### Usage
 - Run the piCam.py python script. The dual live-preview windows should be visible.
 - To capture an image, press the button once and release; the image captures from both cameras will be saved in the Stills directory.
 - To close cameras and exit, press 'CTRL+C'
-#### Notes
+### Notes
 - Modify the `PATH` constant to match the project directory path
 - Modify the `BUTTON_PIN` constant to match the GPIO pin connection with the button
 - `PREV_WIDTH` and `PREV_HEIGHT` constants can be modified to adjust the live-preview window sizes.
@@ -45,3 +45,15 @@ dtoverlay=imx219,cam1    # Make sure to replace 'imx219' with your camera sensor
 - Change current directory to the Benchmark folder: `cd Benchmark/`
 - In the terminal type `chmod +x benchmark.sh` to make the file executable
 - Start the python script with: `python plot_benchmark.py`. The benchmarking will take ~5 minutes, and the graph will be saved in *./Results/* directory.
+### Overclocking Notes
+- To overclock the raspberry pi, edit the config.txt using: `sudo nano /boot/firmware/config.txt`
+```
+.
+arm_boost=1
+overvoltage_delta=50000  # Voltage Delta: 50000uV = 0.05V
+arm_freq=2800            # CPU Freq in MHz
+gpu_freq=925             # GPU Freq in MHz
+.
+```
+- Reboot the raspberry pi using the following command in terminal: `reboot`
+- Run the stress-test and ensure the raspi is stable
