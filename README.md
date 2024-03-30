@@ -2,7 +2,7 @@
 Projects based on Raspberry Pi platform.
 
 ## PiCam
-<img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/picam.png" width="600">
+<img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/picam.png" width="800">
 
 ### Components:
 - Raspberry Pi 5 (8GB) with Raspian OS (bookworm)
