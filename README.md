@@ -101,6 +101,8 @@ network={
 - For now you can try connecting to the raspberry pi in headless-mode (through SSH). Open a terminal in a separate computer connected to the same network, and type `ssh <user_name>@<device_name>.local`. Replace the `<user_name>` and `<device_name>` with the values used during setup.
 - You can retrieve the local IP address by typing `hostname -I` in the terminal. This IP address will be used when connecting through VNC Viewer.
 - Enable VNC on device by typing `sudo raspi-config` in the SSH terminal. Navigate to **Interface Options -> VNC -> Enable**
+
 <img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/config1.png" height="275"> <img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/config2.png" height="275">
+
 - Download a [VNC Viewer](https://www.realvnc.com/en/connect/download/viewer/) and connect to the Raspberry Pi using setup credentials.
 - Follow this informative tutorial from [Real VNC](https://help.realvnc.com/hc/en-us/articles/360003474552-How-do-I-get-started-with-RealVNC-Connect-on-Windows#on-the-device-you-want-to-control-0-0). 
