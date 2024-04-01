@@ -8,6 +8,11 @@ Projects based on Raspberry Pi platform.
 - Utilizes a shell script to begin stress-test on all available cores
 - Saves the stress test results (clock speeds, temperatures) as a CSV file.
 - Plots the data over time and saves it as an image.
+#### Overclocking Tutorial
+- Overclocking, and stress testing to ensure stable operation.
+#### GUI Remote Desktop for Raspberry Pi 5
+- Set-up Raspberry Pi for operation without a connected monitor
+- Find the local IP address, and contron the Raspberry Pi through a VNC Viewer
 
 # [PiCam](https://github.com/ayushchinmay/Raspberry-Pi/tree/main/PiCam)
 <img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/picam.png" width="480">
@@ -76,3 +81,26 @@ gpu_freq=925             # GPU Freq in MHz
 - Run the stress test and ensure the Raspberry Pi is stable at the selected clock
 - You can force the clock speed to remain at the OC by adding `force_turbo=1` in the *config.txt*
 - Additionally, [Geekbench 6](https://www.geekbench.com/preview/) can be used for checking stability under realistic loads.
+- For more information, refer to [Jeff Geerling: Overclocking & Underclocking Raspberry Pi 5](https://www.jeffgeerling.com/blog/2023/overclocking-and-underclocking-raspberry-pi-5)
+
+### GUI Remote Desktop for Raspberry Pi
+- While the Raspberry Pi 5 supports dual 4K at 60 fps, the micro-HDMI cables not being as abundant can lead to dull wait-times.
+- We can alleviate this issue by enabling VNC on the board and control it remotely.
+#### Connect to Wifi
+- If you did not provide the wifi credentials during the [Pi-Imager](https://www.raspberrypi.com/software/) setup, you may need to add the wifi credentials manually by creating a `wpa_supplicant.conf` file in the `/boot/` directory using a separate computer and a micro-SD card Reader.
+```
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=US
+
+network={
+	ssid="WIFI-NETWORK-IDENTIFIER"
+	psk="WIFI-SECURITY-KEY"
+}
+```
+- For now you can try connecting to the raspberry pi in headless-mode (through SSH). Open a terminal in a separate computer connected to the same network, and type `ssh <user_name>@<device_name>.local`. Replace the `<user_name>` and `<device_name>` with the values used during setup.
+- You can retrieve the local IP address by typing `hostname -I` in the terminal. This IP address will be used when connecting through VNC Viewer.
+- Enable VNC on device by typing `sudo raspi-config` in the SSH terminal. Navigate to **Interface Options -> VNC -> Enable**
+<img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/config1.png" height="275"> <img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/config2.png" height="275">
+- Download a [VNC Viewer](https://www.realvnc.com/en/connect/download/viewer/) and connect to the Raspberry Pi using setup credentials.
+- Follow this informative tutorial from [Real VNC](https://help.realvnc.com/hc/en-us/articles/360003474552-How-do-I-get-started-with-RealVNC-Connect-on-Windows#on-the-device-you-want-to-control-0-0). 
