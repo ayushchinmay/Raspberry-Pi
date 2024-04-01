@@ -51,8 +51,9 @@ disable_overscan=1
 
 # Run as fast as firmware / board allows
 arm_boost=1
-arm_freq=2500
-gpu_freq=850
+overvoltage_delta=50000
+arm_freq=2800
+gpu_freq=920
 # force_turbo=1
 
 [cm4]
