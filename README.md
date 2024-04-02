@@ -97,14 +97,15 @@ audio_pwm_mode=2
 - Change current directory to the Benchmark folder: `cd Benchmark/`
 - In the terminal type `chmod +x benchmark.sh` to make the file executable
 - Start the python script with: `python plot_benchmark.py`. The benchmarking will take ~5 minutes, and the graph will be saved in *./Results/* directory.
-### Overclocking [Specific to Raspberry Pi 5]
+
+## Overclocking [Specific to Raspberry Pi 5]
 <img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/heatsink.jpg" height="275"> <img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/neofetch.png" height="275">
 
-#### Some Notes
+### Some Notes
 - Before starting with overclocking, ensure sufficient heat dissipation solutions such as a heatsink or an [active cooling fan](https://wiki.geekworm.com/P511).
 - Ensure the power supply is capable of handling higher currents. Using the Raspberry-Pi certified [power supply](https://www.raspberrypi.com/products/27w-power-supply/) is recommended.
 
-#### Setup
+### Setup
 - To overclock the Raspberry Pi, edit the config.txt using: `sudo nano /boot/firmware/config.txt`
 ```
 .
@@ -121,10 +122,10 @@ gpu_freq=925             # GPU Freq in MHz
 - Additionally, [Geekbench 6](https://www.geekbench.com/preview/) can be used for checking stability under realistic loads.
 - For more information, refer to [Jeff Geerling: Overclocking & Underclocking Raspberry Pi 5](https://www.jeffgeerling.com/blog/2023/overclocking-and-underclocking-raspberry-pi-5)
 
-### GUI Remote Desktop for Raspberry Pi
+## GUI Remote Desktop for Raspberry Pi
 - While the Raspberry Pi 5 supports dual 4K at 60 fps, the micro-HDMI cables not being as abundant can lead to dull wait-times.
 - We can alleviate this issue by enabling VNC on the board and control it remotely.
-#### Connect to Wifi
+### Connect to Wifi
 - If you did not provide the wifi credentials during the [Pi-Imager](https://www.raspberrypi.com/software/) setup, you may need to add the wifi credentials manually by creating a `wpa_supplicant.conf` file in the `/boot/` directory using a separate computer and a micro-SD card Reader.
 ```
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
