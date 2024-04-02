@@ -4,6 +4,10 @@ Projects based on Raspberry Pi platform.
 - Implements face-detection and smile detection to trigger image-capture after 3 seconds of continuous smiling.
 - Implements handling of dual mounted cameras simultaneously.
 - Non-blocking button press detection to trigger image-capture events.
+#### [Pi Mic](https://github.com/ayushchinmay/Raspberry-Pi/tree/main/PiMic)
+- Implements pyaudio to record audio through a usb microphone
+- Push-to-Record button implemented, which upon release saves the audio as a WAV file
+- Plots the recorded audio form for further audio analysis
 #### [Benchmark Tool](https://github.com/ayushchinmay/Raspberry-Pi/tree/main/Benchmark)
 - Utilizes a shell script to begin stress-test on all available cores
 - Saves the stress test results (clock speeds, temperatures) as a CSV file.
@@ -22,7 +26,7 @@ Projects based on Raspberry Pi platform.
 - Raspberry Pi 5 (8GB) with Raspian OS (bookworm)
 - IMX219 Camera Module V2
 - Push-Button
-- Instantiates the dual-camera preview
+
 ### Setup:
 #### Update Config.txt
 - Make the following modifications to the config.txt in boot/firmware/config.txt
@@ -38,6 +42,7 @@ dtoverlay=imx219,cam1    # Make sure to replace 'imx219' with your camera sensor
 - In the terminal, run the following commands: `sudo apt update` and `sudo apt full-upgrade`
 - Test the cameras are detected by using the following command: `rpicam-hello --camera 0`
 - Install the PiCamera2 python module: `sudo apt install -y python3-picamera2`
+
 ### Usage
 - Run the piCam.py python script. The dual live-preview windows should be visible.
 - To capture an image, press the button once and release; the image captures from both cameras will be saved in the Stills directory.
@@ -46,6 +51,39 @@ dtoverlay=imx219,cam1    # Make sure to replace 'imx219' with your camera sensor
 - Modify the `PATH` constant to match the project directory path
 - Modify the `BUTTON_PIN` constant to match the GPIO pin connection with the button
 - `PREV_WIDTH` and `PREV_HEIGHT` constants can be modified to adjust the live-preview window sizes.
+
+# [PiMic](https://github.com/ayushchinmay/Raspberry-Pi/tree/main/PiMic)
+<img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/pimic.png" width="600">
+
+### Components:
+- Raspberry Pi 5 (8GB) with Raspian OS (bookworm)
+- USB Microphone
+- Push-Button
+
+### Setup:
+#### Update Config.txt
+- Make the following modifications to the config.txt in boot/firmware/config.txt
+```
+.
+dtparam=audio=0
+audio_pwm_mode=2
+.
+```
+- For additional audio software software information, refer to [PyAydui Documentation](https://people.csail.mit.edu/hubert/pyaudio/docs/)
+#### Installing PyAudio module in python
+- In the terminal, run the following commands: `sudo apt update` and `sudo apt full-upgrade`
+- Ensure the USB Mic shows up with the following command: `lsusb -t`
+- Test the mic is detected by using the following command: `arecord -l`
+- Install the PiCamera2 python module: `sudo apt install -y python3-pyaudio`
+### Usage
+- As of now, the *piMic.py* script will use the default audio device to record sound.
+- To start recording audio, press the button and hold; The audio will be recorded until the button is released.
+- The Audio files can be found in *./Recordings/* and the Waveform plots in *./Waveforms/*
+- To terminate the mic and exit, press 'CTRL+C'
+### Notes
+- Modify the `PATH` constant to match the project directory path
+- Modify the `BUTTON_PIN` constant to match the GPIO pin connection with the button
+- Currently the script only implements MONO-channel recording
 
 # [Benchmark](https://github.com/ayushchinmay/Raspberry-Pi/tree/main/Benchmark)
 <img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/benchmark1.png" width="600">
