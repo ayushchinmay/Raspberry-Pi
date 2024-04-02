@@ -120,7 +120,9 @@ def do_nothing():
 def main():
     global cam0, cam1
 
-    button.when_pressed = take_picture
+    button.when_held = take_picture
+	button.hold_time = 0.5
+	button.hold_repeat = False
     button.when_released = do_nothing
 
 
