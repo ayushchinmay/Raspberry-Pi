@@ -20,8 +20,10 @@
 			- [-] Save Image and Audio to a file
 
 	! TODO !
-			- [ ] Send Image and Audio to an API for processing
+			- [ ] Add speech transcription API
+   			- [ ] Add image web search API
 			- [ ] Receive API response and display it on the screen
+   			- [ ] Use Subprocesses for image capture?
 """
 
 ## ==========[ MODULES ]========== ##
