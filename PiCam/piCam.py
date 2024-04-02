@@ -95,16 +95,23 @@ def stop_camera(cam):
 
 # Take Picture function
 def take_picture():
-    print("[INFO] Taking Picture in 3 seconds...")
-    sleep(3)
-    fname = f"image_{strftime('%Y-%m-%d_%H-%M-%S')}.jpg"
-    cam0.switch_mode_and_capture_file(capture_config, PATH+"cam0_"+fname)
-    cam1.switch_mode_and_capture_file(capture_config, PATH+"cam1_"+fname)
-    print("[INFO] Switching to Capture Mode: ")
-    print_info(capture_config)
-    print(f"[FILE] Image saved to {PATH}cam0_{fname}")
-    print(f"[FILE] Image saved to {PATH}cam1_{fname}")
-    
+	print("[INFO] Taking Picture...")
+	sleep(0.2)
+	fname = f"image_{strftime('%Y-%m-%d_%H-%M-%S')}.jpg"
+	print("[INFO] Switching to Capture Mode: ")
+	if cam0 is not None:
+		cam0.switch_mode_and_capture_file(capture_config, PATH+"cam0_"+fname)
+		print(f"[FILE] Image saved to {PATH}cam0_{fname}")
+	else:
+		print("[ERROR] Camera 0 not found")
+
+	if cam1 is not None:
+		cam1.switch_mode_and_capture_file(capture_config, PATH+"cam1_"+fname)
+		print(f"[FILE] Image saved to {PATH}cam1_{fname}")
+	else:
+		print("[ERROR] Camera 1 not found")
+	print_cam_info(capture_config)
+
 
 def do_nothing():
     sleep(3)
