@@ -8,6 +8,11 @@ Projects based on Raspberry Pi platform.
 - Implements pyaudio to record audio through a usb microphone
 - Push-to-Record button implemented, which upon release saves the audio as a WAV file
 - Plots the recorded audio form for further audio analysis
+#### [Pi Search](https://github.com/ayushchinmay/Raspberry-Pi/tree/main/PiSearch)
+- Non-blocking button press event checking
+- Implemented image-capture-and-save trigger upon button press.
+- Implemented audio stream capture as a push-to-record mode
+- Added safe application termination
 #### [Benchmark Tool](https://github.com/ayushchinmay/Raspberry-Pi/tree/main/Benchmark)
 - Utilizes a shell script to begin stress-test on all available cores
 - Saves the stress test results (clock speeds, temperatures) as a CSV file.
