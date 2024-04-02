@@ -14,6 +14,10 @@
             - [X] Detect button press, and trigger Image Capture
             - [X] Capture Image and save it to a file
             - [X] Only capture image once -- implement 
+	* [01 Apr 2024] 
+			- [X] Automagically create Stills directory if it doesn't exist
+   			- [X] Fixed repeated captures on button hold
+	  		- [X] Added missing-camera detection
 
     ! TODO !
             - [-] Automagically create Stills directory if it doesn't exist
