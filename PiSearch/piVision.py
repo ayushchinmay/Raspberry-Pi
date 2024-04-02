@@ -1,21 +1,16 @@
 """
-	AUTHOR      :   Ayush Chinmay, Vigneshwer Ramamoorthi
-	DATE CREATED:   21 Mar 2024
+	AUTHOR      :   Ayush Chinmay
+	DATE CREATED:   01 Apr 2024
 
-	DESCRIPTION :   Python code to capture images and audio using Raspberry Pi Camera Module and Microphone
+	DESCRIPTION :   Python code to capture images and audio using Raspberry Pi Camera Module and Microphone with a single button
 
 	COMPONENTS:
 			- Raspberry Pi 5 ()
-			- Raspberry Pi Camera Module
-			- Microphone
-			- Speaker
-			- Battery Pack
+			- Raspberry Pi Camera Module V2
+			- USB Microphone
 
 	? CHANGELOG ?
-		* [21 Mar 2024]
-			- [ ] ...
-
-	! TODO !
+		* [02 Apr 2024]
 			- [-] Initialization functions for Camera and Microphone
 			- [-] Detect button press
 			- [-] Detect button release
@@ -23,6 +18,8 @@
 			- [-] Record Audio on button press
 			- [-] Stop Recording on button release
 			- [-] Save Image and Audio to a file
+
+	! TODO !
 			- [ ] Send Image and Audio to an API for processing
 			- [ ] Receive API response and display it on the screen
 """
