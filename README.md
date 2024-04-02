@@ -85,6 +85,28 @@ audio_pwm_mode=2
 - Modify the `BUTTON_PIN` constant to match the GPIO pin connection with the button
 - Currently the script only implements MONO-channel recording
 
+# [PiSearch](https://github.com/ayushchinmay/Raspberry-Pi/tree/main/PiSearch)
+### Components:
+- Raspberry Pi 5 (8GB) with Raspian OS (bookworm)
+- IMX219 Camera Module V2
+- USB Microphone
+- Push-Button
+
+<img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/000677.png" width="600">
+<img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/000678.png" width="600">
+
+### Description
+- This combines the functionality of PiCam & PiMic into one large script sans the plotting functions.
+- When the button is pressed, the cameras will capture a still and save it to the *./Stills* directory.
+- Right after this, the audio recording will begin
+- The audio stream will be recorded for as long as the button is held
+ 	- Once the button is released, the audio stream will be saved as a wave file in *./Recordings*
+	-  When the captures are saved, we will go back into the while loop, awaiting the next button press
+-  To exit the script safely, press `CTRL+C`. This will terminate the audio stream, and the camera previews, then exit.
+### Notes
+- This project is still in development, and more features will be added as it progresses.
+- Some of those features may include audio transcription, object detection, web searches, setting timers, etc.
+
 # [Benchmark](https://github.com/ayushchinmay/Raspberry-Pi/tree/main/Benchmark)
 <img src="https://github.com/ayushchinmay/Raspberry-Pi/blob/main/readme_img/benchmark1.png" width="600">
 
