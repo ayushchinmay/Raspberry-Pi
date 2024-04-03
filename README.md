@@ -1,7 +1,7 @@
 ## Raspberry-Pi Projects
 Projects based on Raspberry Pi platform.
 #### [Pi Camera](https://github.com/ayushchinmay/Raspberry-Pi/tree/main/PiCam)
-- Implements face-detection and smile detection to trigger image-capture after 3 seconds of continuous smiling.
+- Implements face-detection and smile detection with the OpenCV Library to trigger image-capture after 3 seconds of continuous smiling.
 - Implements handling of dual mounted cameras simultaneously.
 - Non-blocking button press detection to trigger image-capture events.
 #### [Pi Mic](https://github.com/ayushchinmay/Raspberry-Pi/tree/main/PiMic)
